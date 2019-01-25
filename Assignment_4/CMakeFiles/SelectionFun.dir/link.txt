@@ -1,0 +1,1 @@
+/usr/bin/c++     CMakeFiles/SelectionFun.dir/SelectionFunTest.cpp.o  -o SelectionFun 
