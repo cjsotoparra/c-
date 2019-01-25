@@ -109,12 +109,17 @@ TEST_CASE ("allAsLeft") {
     // Add more REQUIREs
 }
 
-/*
 TEST_CASE ("mirrorEnds") {
-    REQUIRE("aasdsaa" == mirrorEnds("aasdsaa"));
+	REQUIRE("" == mirrorEnds(""));
+	REQUIRE("a" == mirrorEnds("a"));
+	REQUIRE("aasdsaa" == mirrorEnds("aasdsaa"));
+	REQUIRE("ab" == mirrorEnds("abXYZba"));
+	REQUIRE("a" == mirrorEnds("abca"));
+	REQUIRE("aba" == mirrorEnds("aba"));
+	REQUIRE("racecar" == mirrorEnds("racecar"));
     // Add more REQUIREs
 }
-
+/*
 TEST_CASE ("starOut") {
     REQUIRE(starOut("sm**eil*ly") == "siy");
     // Add more REQUIREs

@@ -344,8 +344,28 @@ bool isSorted (std::string str) {
 //  mirrorEnds("aba") returns "aba"
 //
 std::string mirrorEnds (std::string str) {
-    // TODO: Complete this function
-    return "Under Construction";
+
+	if(str.length() <= 1){
+		return str;
+	}
+
+	std::string mirrorStr = "";
+	int index2 = str.length()-1;
+
+	for(int i = 0; i<(str.length()+1)/2; i++){
+
+		if(i == index2){
+			return str;
+		} else if(str[i] == str[index2]){
+			mirrorStr = mirrorStr + str[i];
+		}else{
+			return mirrorStr;
+		}
+
+		index2 = index2 - 1;
+	}
+
+    return mirrorStr;
 }
 
 
