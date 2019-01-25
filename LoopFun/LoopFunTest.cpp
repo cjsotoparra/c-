@@ -98,12 +98,18 @@ TEST_CASE ("howSwedish") {
     // Add more REQUIREs
 }
 
-/*
 TEST_CASE ("allAsLeft") {
-    REQUIRE("AAA" == allAsLeft("aaaAAA").substr(0,3));
+	REQUIRE("AAA" == allAsLeft("aaaAAA").substr(0,3));
+	REQUIRE("" == allAsLeft(""));
+	REQUIRE("A" == allAsLeft("A"));
+	REQUIRE("G" == allAsLeft("G"));
+	REQUIRE("AB" == allAsLeft("AB"));
+	REQUIRE("AB" == allAsLeft("BA"));
+	REQUIRE("AABCaDEFGa" == allAsLeft("ABCaDEFGaA"));
     // Add more REQUIREs
 }
 
+/*
 TEST_CASE ("mirrorEnds") {
     REQUIRE("aasdsaa" == mirrorEnds("aasdsaa"));
     // Add more REQUIREs

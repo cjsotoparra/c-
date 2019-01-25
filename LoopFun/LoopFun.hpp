@@ -5,7 +5,7 @@
  * while or a for loop. Some some perform mathematical
  * calculations, some process strings.
  *
- * Programmer Rick Mercer
+ * Programmer Rick Mercer and Christian Soto, 2019
  */
 #ifndef LOOPFUN_HPP_
 #define LOOPFUN_HPP_
@@ -269,7 +269,36 @@ int howSwedish (std::string str) {
 //
 std::string allAsLeft (std::string str) {
     // TODO: Complete this function
-    return "Under Construction";
+
+	//too short of a string so just return
+	if(str.length() <= 1){
+		return str;
+	}
+
+	std::string strA = "";
+	std::string newStr = "";
+
+	//get A's into strA
+	for(int i = 0; i<str.length(); i++){
+
+		//concatenate A to strA
+		if(str[i] == 'A'){
+			strA = strA + str[i];
+		}
+
+	}//for loop
+
+	//add all other chars to newStr
+	for(int j = 0; j<str.length(); j++){
+
+		if(str[j] != 'A'){
+			newStr = newStr + str[j];
+		}
+
+	}//for loop
+
+	//return strA + newStr
+	return strA + newStr;
 }
 
 

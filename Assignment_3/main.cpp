@@ -28,9 +28,11 @@ int howSwedish(std::string  str){
 	bool firstB = false;
 	bool secondB = false;
 
+	//too short for any swedish
 	if(str.length() < 4){
 		return 0;
 	}
+
 
 	for(int i = 0; i < str.length(); i++){
 
@@ -51,7 +53,6 @@ int howSwedish(std::string  str){
 
 		}else if((str[i] == 'B' || str[i] == 'b') && firstA == true && firstB == true && secondB == false){//found second B
 			secondB = true;
-
 
 		}else if(str[i] == 'B' || str[i] == 'b'){
 
