@@ -37,7 +37,6 @@
 //  isPrime(11) returns true
 //
 bool isPrime (int num) {
-    // TODO: Complete this function
 
 	for(int i = 2; i<num; i++){
 
@@ -71,7 +70,6 @@ bool isPrime (int num) {
 //  fibonacci(6) returns 8
 //
 int fibonacci (int n) {
-    // TODO: Complete this function
 
 	if(n == 0){
 		return 0;
@@ -100,7 +98,6 @@ int fibonacci (int n) {
 ;// Precondition: n >= 0
 //
 int factorial (int n) {
-    // TODO: Complete this function
 	if(n == 0 || n == 1){
 		return 1;
 	}
@@ -127,7 +124,6 @@ int factorial (int n) {
 //  vowelCount("y+_x1Y2x!y") returns 0
 //
 int vowelCount (std::string str) {
-    // TODO: Complete this function
 
 	int count = 0;
 
@@ -145,8 +141,6 @@ int vowelCount (std::string str) {
 			case 'u':
 			case 'U':
 				count = count + 1;
-//			default:
-//				count = count +0;
 		}
 	}
     return count;
@@ -165,7 +159,6 @@ int vowelCount (std::string str) {
 //  numberOfPairs ("!!!") returns 2
 //
 int numberOfPairs (std::string str) {
-    // TODO: Complete this function
 	if(str.length() < 2){
 		return 0;
 	}
@@ -202,7 +195,6 @@ int numberOfPairs (std::string str) {
 //  howSwedish("abbAbba") returns 2
 //
 int howSwedish (std::string str) {
-  // TODO Complete this function
 
 	if(str.length() <= 3){
 		return 0;
@@ -268,7 +260,6 @@ int howSwedish (std::string str) {
 //  allAsLeft("ABCaDEFGaA") returns "AABCaDEFGa";
 //
 std::string allAsLeft (std::string str) {
-    // TODO: Complete this function
 
 	//too short of a string so just return
 	if(str.length() <= 1){
@@ -314,7 +305,6 @@ std::string allAsLeft (std::string str) {
 //  isSorted("12321") returns false
 //
 bool isSorted (std::string str) {
-    // TODO: Complete this function
 
 	if(str.length() <= 1){
 		return true;
@@ -380,8 +370,45 @@ std::string mirrorEnds (std::string str) {
 //  starOut("sm*eilly") returns "silly"
 //
 std::string starOut (std::string str) {
-    // TODO: Complete this function
-    return "Under Construction";
+
+	//check if string is shorter than 3
+	if(str.length() <=2 ){
+
+		//any * will return empty string
+		for(int j = 0; j<str.length(); j++){
+
+			if(str[j] == '*'){
+				return "";
+			}
+		}
+
+		//no * found then just return string
+		return str;
+
+	}//if statement
+
+	//this part is for strings length 3 or longer
+	std::string newStr = "";
+
+	for(int i = 0; i<str.length(); i++){
+
+		//as long as the current char is not * and there is no *
+		// next the left and right of the char, then add it to the string
+		if(i == 0 && str[i+1] != '*' && str[i] != '*'){ //edege case: start of string
+			newStr = newStr + str[i];
+
+		//edge case end of string
+		}else if(i == str.length()-1 && str[i] != '*' && str[i-1] != '*'){
+			newStr = newStr + str[i];
+
+		//normal
+		}else if(str[i] != '*' && str[i-1] != '*' && str[i+1] != '*'){
+			newStr = newStr + str[i];
+		}
+
+	}//for loop
+
+    return newStr;
 }
 
 #endif  // LOOPFUN_HPP_

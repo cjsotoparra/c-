@@ -1,5 +1,6 @@
 //
 // Created by Rick Mercer on 2019-01-02.
+// Finish by Christian Soto, 2019
 //
 // This #define tells Catch to provide a main().
 // Only do this in one cpp file.
@@ -21,7 +22,6 @@ TEST_CASE("isPrime") {
     REQUIRE(isPrime(61));
     REQUIRE(isPrime(43));
     REQUIRE_FALSE(isPrime(500));
-    // Add more REQUIREs
 }
 
 TEST_CASE ("fibonacci") {
@@ -32,7 +32,6 @@ TEST_CASE ("fibonacci") {
 	REQUIRE(5 == fibonacci(5));
 	REQUIRE(8 == fibonacci(6));
 	REQUIRE(13 == fibonacci(7));
-    // Add more REQUIREs
 }
 
 TEST_CASE ("factorial") {
@@ -47,14 +46,12 @@ TEST_CASE ("factorial") {
 	REQUIRE(40320 == factorial(8));
 	REQUIRE(362880 == factorial(9));
 	REQUIRE(3628800 == factorial(10));
-    // Add more REQUIREs
  }
 
 TEST_CASE ("vowelCount") {
 	REQUIRE(11 == vowelCount("How much wood could a woodchuck chuck"));
 	REQUIRE(0 == vowelCount("y+_x12x!y"));
 	REQUIRE(0 == vowelCount(""));
-    // Add more REQUIREs
 }
 
 
@@ -66,7 +63,6 @@ TEST_CASE ("numberOfPairs") {
 	REQUIRE(0 == numberOfPairs("BbB"));
 	REQUIRE(0 == numberOfPairs("abc"));
 	REQUIRE(3 == numberOfPairs("aabbcc"));
-    // Add more REQUIREs
 }
 
 TEST_CASE("isSorted") {
@@ -81,7 +77,6 @@ TEST_CASE("isSorted") {
 	REQUIRE_FALSE(isSorted("123452"));
 	REQUIRE(isSorted("58"));
 	REQUIRE_FALSE(isSorted("21"));
-    // Add more REQUIREs
 }
 
 TEST_CASE ("howSwedish") {
@@ -95,7 +90,6 @@ TEST_CASE ("howSwedish") {
 	REQUIRE(1 == howSwedish("AbBa a B b a"));
 	REQUIRE(2 == howSwedish("!abbaABba!"));
 	REQUIRE(2 == howSwedish("abbAbba"));
-    // Add more REQUIREs
 }
 
 TEST_CASE ("allAsLeft") {
@@ -106,7 +100,6 @@ TEST_CASE ("allAsLeft") {
 	REQUIRE("AB" == allAsLeft("AB"));
 	REQUIRE("AB" == allAsLeft("BA"));
 	REQUIRE("AABCaDEFGa" == allAsLeft("ABCaDEFGaA"));
-    // Add more REQUIREs
 }
 
 TEST_CASE ("mirrorEnds") {
@@ -117,10 +110,20 @@ TEST_CASE ("mirrorEnds") {
 	REQUIRE("a" == mirrorEnds("abca"));
 	REQUIRE("aba" == mirrorEnds("aba"));
 	REQUIRE("racecar" == mirrorEnds("racecar"));
-    // Add more REQUIREs
 }
-/*
+
 TEST_CASE ("starOut") {
-    REQUIRE(starOut("sm**eil*ly") == "siy");
-    // Add more REQUIREs
-}*/
+	REQUIRE(starOut("sm**eil*ly") == "siy");
+	REQUIRE(starOut("sm*eilly") == "silly");
+	REQUIRE(starOut("ab*cd") == "ad");
+	REQUIRE(starOut("ab**cd") == "ad");
+	REQUIRE(starOut("a*") == "");
+	REQUIRE(starOut("a*a") == "");
+	REQUIRE(starOut("") == "");
+	REQUIRE(starOut("abc") == "abc");
+	REQUIRE(starOut("ad") == "ad");
+	REQUIRE(starOut("*ab") == "b");
+	REQUIRE(starOut("ab*") == "a");
+	REQUIRE(starOut("******") == "");
+	REQUIRE(starOut("****aaa****aa") == "aa");
+}
