@@ -22,6 +22,7 @@ TEST_CASE("isPrime") {
     REQUIRE(isPrime(61));
     REQUIRE(isPrime(43));
     REQUIRE_FALSE(isPrime(500));
+    REQUIRE(isPrime(31));
 }
 
 TEST_CASE ("fibonacci") {
@@ -32,6 +33,7 @@ TEST_CASE ("fibonacci") {
 	REQUIRE(5 == fibonacci(5));
 	REQUIRE(8 == fibonacci(6));
 	REQUIRE(13 == fibonacci(7));
+	REQUIRE(21 == fibonacci(8));
 }
 
 TEST_CASE ("factorial") {
@@ -52,6 +54,7 @@ TEST_CASE ("vowelCount") {
 	REQUIRE(11 == vowelCount("How much wood could a woodchuck chuck"));
 	REQUIRE(0 == vowelCount("y+_x12x!y"));
 	REQUIRE(0 == vowelCount(""));
+	REQUIRE(10 == vowelCount("aeiouAeiou"));
 }
 
 
@@ -63,6 +66,7 @@ TEST_CASE ("numberOfPairs") {
 	REQUIRE(0 == numberOfPairs("BbB"));
 	REQUIRE(0 == numberOfPairs("abc"));
 	REQUIRE(3 == numberOfPairs("aabbcc"));
+	REQUIRE(2 == numberOfPairs("!!!"));
 }
 
 TEST_CASE("isSorted") {
@@ -77,6 +81,7 @@ TEST_CASE("isSorted") {
 	REQUIRE_FALSE(isSorted("123452"));
 	REQUIRE(isSorted("58"));
 	REQUIRE_FALSE(isSorted("21"));
+	REQUIRE(isSorted("135799"));
 }
 
 TEST_CASE ("howSwedish") {
