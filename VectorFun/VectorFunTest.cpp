@@ -54,16 +54,49 @@ TEST_CASE("testSortOfSort1") {
 
 
 TEST_CASE("testNumberOfPairs1") {
-    vector<string> s1{"a", "b", "c"};
-    REQUIRE(0 == numberOfPairs(s1));
+	vector<string> s1{"a", "b", "c"};
+	REQUIRE(0 == numberOfPairs(s1));
+
+	vector<int> twoPair = {1,1,1};
+	REQUIRE(2 == numberOfPairs(twoPair));
+
+	vector<string> s2{"christian", "christian"};
+	REQUIRE(1 == numberOfPairs(s2));
+
+	vector<string> s3{"christian"};
+	REQUIRE(0 == numberOfPairs(s3));
+
+	vector<string> s4{};
+	REQUIRE(0 == numberOfPairs(s4));
+
+	vector<int> i1{1,2,1,2,1};
+	REQUIRE(0 == numberOfPairs(i1));
+
+	vector <string> s5{"a","a","a","a"};
+	REQUIRE(3 == numberOfPairs(s5));
+
+	vector<string> s6{"a","a","b","b","c","c"};
+	REQUIRE(3 == numberOfPairs(s6));
 }
 
-/*
+
 TEST_CASE("testSumIsGreater") {
-    vector<double> x = {1.1, 2.2, 3.3};
-    REQUIRE(sumGreaterThan(x, 4.0));
-}
+	vector<double> d1{};
+	REQUIRE(sumGreaterThan(d1, -1));
 
+	vector<double>d2{0};
+	REQUIRE(sumGreaterThan(d2, -1));
+
+	vector<double> d3{0};
+	REQUIRE_FALSE(sumGreaterThan(d3, 0));
+
+	vector<double> x = {1.1, 2.2, 3.3};
+	REQUIRE(sumGreaterThan(x, 4.0));
+
+	vector<double> d4{1.1,2.2,3.3};
+	REQUIRE_FALSE(sumGreaterThan(d4,6.6));
+}
+/*
 TEST_CASE("testSumIsGreater2") {
     vector<double> x2 = {1.1, 2.2, 3.3};
     REQUIRE(!sumGreaterThan(x2, 6.6));

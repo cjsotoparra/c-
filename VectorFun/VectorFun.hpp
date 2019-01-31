@@ -100,10 +100,29 @@ void sortOfSort (std::vector<T> &vec) {
 // numberOfPairs( {"a"} ) returns 0
 //
 // Precondition T must overload ==
-/*template<typename T>
+template<typename T>
 int numberOfPairs (std::vector<T> const &vec) {
-    // TODO: Complete this function
-    return -999;
+
+	//check length first before any calculations
+	if(vec.size() <= 1){
+		return 0;
+	}
+
+	auto pairs{0};
+	auto next = vec.begin()+1;
+
+	for(auto itr = vec.begin(); itr != vec.end()-1; itr++){
+
+		if(*itr == *next){
+
+			pairs+=1;
+		}
+
+		next++;
+
+	}
+
+	return pairs;
 }
 
 
@@ -117,8 +136,26 @@ int numberOfPairs (std::vector<T> const &vec) {
 //
 bool sumGreaterThan (std::vector<double> const &numbers,
                      double sum) {
-    // TODO: Complete this function
-    return not true;
+
+	//check empty vector
+	if(numbers.size() == 0){
+		return 0>sum;
+	}
+
+	//check length of one
+	if(numbers.size() ==1){
+		return *(numbers.begin()) > sum;
+	}
+
+	//length more than 1, iterate
+	auto sumOfVector{0};
+
+	for(auto itr = numbers.begin(); itr != numbers.end(); itr++){
+
+		sumOfVector += *itr;
+	}
+
+    return sumOfVector > sum;
 }
 
 // Complete method howMany to return the number of elements
@@ -132,11 +169,13 @@ bool sumGreaterThan (std::vector<double> const &numbers,
 //
 int howMany (std::vector<std::string> const &array,
              std::string const &valueToFind) {
-    // TODO: Complete this function
+
+	//check length
+	
     return -999;
 }
 
-
+/*
 // Given a vector containing a stream of integers in the
 // range of 0..10 (like quiz scores), return an array of 11
 // integers where the first value (at index 0) is the number
