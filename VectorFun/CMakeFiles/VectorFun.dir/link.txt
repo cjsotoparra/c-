@@ -1,0 +1,1 @@
+/usr/bin/c++     CMakeFiles/VectorFun.dir/VectorFunTest.cpp.o CMakeFiles/VectorFun.dir/catch-main.cpp.o  -o VectorFun 

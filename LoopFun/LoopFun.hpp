@@ -397,7 +397,7 @@ std::string starOut (std::string str) {
 		if(i == 0 && str[i+1] != '*' && str[i] != '*'){ //edege case: start of string
 			newStr = newStr + str[i];
 
-		//edge case end of string
+		//edge case: end of string
 		}else if(i == str.length()-1 && str[i] != '*' && str[i-1] != '*'){
 			newStr = newStr + str[i];
 

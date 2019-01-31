@@ -131,4 +131,6 @@ TEST_CASE ("starOut") {
 	REQUIRE(starOut("ab*") == "a");
 	REQUIRE(starOut("******") == "");
 	REQUIRE(starOut("****aaa****aa") == "aa");
+	REQUIRE(starOut("ab***************cd") == "ad");
+	REQUIRE(starOut("ab****************cd*") == "a");
 }
