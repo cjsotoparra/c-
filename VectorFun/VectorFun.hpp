@@ -187,7 +187,7 @@ int howMany (std::vector<std::string> const &array,
     return num;
 }
 
-/*
+
 // Given a vector containing a stream of integers in the
 // range of 0..10 (like quiz scores), return an array of 11
 // integers where the first value (at index 0) is the number
@@ -202,9 +202,64 @@ int howMany (std::vector<std::string> const &array,
 //
 // Precondition: The vector argument has ints only in
 // the range of 0..10 only.
+
 std::vector<int> frequency (std::vector<int> const &vec) {
-    // TODO: Complete this function
-    return { -1, -2, -3 };
+
+	auto zero{0};
+	auto one{0};
+	auto two{0};
+	auto three{0};
+	auto four{0};
+	auto five{0};
+	auto six{0};
+	auto seven{0};
+	auto eight{0};
+	auto nine{0};
+	auto ten{0};
+
+	for(auto itr : vec){
+
+		switch(itr){
+			case 0:
+				zero+=1;
+				break;
+			case 1:
+				one+=1;
+				break;
+			case 2:
+				two+=1;
+				break;
+			case 3:
+				three+=1;
+				break;
+			case 4:
+				four+=1;
+				break;
+			case 5:
+				five+=1;
+				break;
+			case 6:
+				six+=1;
+				break;
+			case 7:
+				seven+=1;
+				break;
+			case 8:
+				eight+=1;
+				break;
+			case 9:
+				nine+=1;
+				break;
+			default:
+				ten+=1;
+
+		}//switch
+
+	}//for loop
+
+	auto result = {zero, one, two, three, four, five, six, seven, eight, nine, ten};
+
+    return result;
 }
 
 
@@ -227,7 +282,28 @@ std::vector<int> frequency (std::vector<int> const &vec) {
 //
 // Do NOT use a return statement
 void evensLeft (std::vector<int> &vec) {
-    // TODO: Complete this function
+
+	//if length is 1 or less, don't bother
+	//with calculations
+	if(vec.size() <=1){
+		return;
+	}
+
+	auto temp{0};
+
+	for(auto itr = vec.begin()+1; itr != vec.end(); itr++){
+
+		//found even
+		if(*itr%2 == 0){
+
+			//insert even element at the front and remove current element
+			temp = *itr;
+			vec.erase(itr);
+			itr--;
+			vec.insert(vec.begin(), temp);
+		}
+
+	}//for loop
 }
 
 
@@ -254,10 +330,9 @@ void evensLeft (std::vector<int> &vec) {
 // Do NOT return anything
 template<typename T>
 void shiftNTimes (std::vector<T> &vec, int &&numShifts) {
-    // TODO: Complete this function
 }
 
-
+/*
 // Return the range of the numbers in an array[].
 // The range is the maximum value - minimum value
 //

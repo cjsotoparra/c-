@@ -101,24 +101,36 @@ TEST_CASE("testSumIsGreater2") {
     vector<double> x2 = {1.1, 2.2, 3.3};
     REQUIRE(!sumGreaterThan(x2, 6.6));
 }
-/*
-TEST_CASE("testFrequency") {
-    vector<int> nums{1, 1, 1, 3, 3, 5, 6, 6, 10, 10, 10};
-    vector<int> result = frequency(nums);
-    REQUIRE(0 == result[0]);
-    REQUIRE(3 == result[1]);
-    REQUIRE(0 == result[2]);
-    REQUIRE(2 == result[3]);
-    REQUIRE(0 == result[4]);
-    REQUIRE(1 == result[5]);
-    REQUIRE(2 == result[6]);
-    REQUIRE(0 == result[7]);
-    REQUIRE(0 == result[8]);
-    REQUIRE(0 == result[9]);
-    REQUIRE(3 == result[10]);
-}
-*/
 
+TEST_CASE("testFrequency") {
+	vector<int> nums{1, 1, 1, 3, 3, 5, 6, 6, 10, 10, 10};
+	vector<int> result = frequency(nums);
+	REQUIRE(0 == result[0]);
+	REQUIRE(3 == result[1]);
+	REQUIRE(0 == result[2]);
+	REQUIRE(2 == result[3]);
+	REQUIRE(0 == result[4]);
+	REQUIRE(1 == result[5]);
+	REQUIRE(2 == result[6]);
+	REQUIRE(0 == result[7]);
+	REQUIRE(0 == result[8]);
+	REQUIRE(0 == result[9]);
+	REQUIRE(3 == result[10]);
+
+	vector<int> nums2{5,0,7,7,7,9,9,5,8,10};
+        vector<int> result2 = frequency(nums2);
+        REQUIRE(1 == result2[0]);
+        REQUIRE(0 == result2[1]);
+        REQUIRE(0 == result2[2]);
+        REQUIRE(0 == result2[3]);
+        REQUIRE(0 == result2[4]);
+        REQUIRE(2 == result2[5]);
+        REQUIRE(0 == result2[6]);
+        REQUIRE(3 == result2[7]);
+        REQUIRE(1 == result2[8]);
+        REQUIRE(2 == result2[9]);
+        REQUIRE(1 == result2[10]);
+}
 
 TEST_CASE("testFailedHowMany") {
 	vector<string> strs{"a", "C", "X", "x", "b", "a", "b",
@@ -133,25 +145,50 @@ TEST_CASE("testFailedHowMany") {
 	REQUIRE(1 == howMany(s2, "another"));
 
 	vector<string> s3{"And", "there", "goes", "another"};
-	REQUIRE(1 == howMany(s2, "Not here"));
+	REQUIRE(0 == howMany(s3, "Not here"));
 
 	vector<string> s4{"A", "a", "A", "a"};
 	REQUIRE(2 == howMany(s4, "A"));
 }
 
-/*
+
 TEST_CASE("testEvensLeft") {
-    vector<int> a = {1, 2, 3, 4, 5, 6, 7};
-    evensLeft(a);
-// left side of the array at indexes 0..2 is even
-    for (int i = 0; i <= 2; i++)
-        REQUIRE(0 == a[i] % 2);
-// right side of the array at indexes 3..6 is odd
-    for (int i = 3; i <= 6; i++)
-        REQUIRE(1 == a[i] % 2);
+    	vector<int> a = {1, 2, 3, 4, 5, 6, 7};
+    	evensLeft(a);
+	// left side of the array at indexes 0..2 is even
+    	for (int i = 0; i <= 2; i++)
+        	REQUIRE(0 == a[i] % 2);
+	// right side of the array at indexes 3..6 is odd
+	for (int i = 3; i <= 6; i++)
+        	REQUIRE(1 == a[i] % 2);
+
+
+	vector<int> b = {3,-2,-2};
+	evensLeft(b);
+	//Left side
+	for(int i = 0; i <=1; i++){
+		REQUIRE(0 == b[i]%2);
+	}
+	//Right side
+	for(int i = 2; i<2; i++){
+		REQUIRE(1 == b[i] % 2);
+	}
+
+	vector<int> c {1,0,1,0,0,1,1};
+	evensLeft(c);
+
+	//Left side
+	for(int i = 0; i <= 2; i++){
+		REQUIRE(0 == c[i] % 2);
+	}
+
+	//Right side
+	for(int i = 3; i <= 6; i++){
+		REQUIRE(1 == c[i] % 2);
+	}
 }
 
-
+/*
 TEST_CASE("testShiftNTimes") {
     vector<int> a = {1, 2, 3};
     shiftNTimes(a, 1);
