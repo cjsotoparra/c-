@@ -2,7 +2,7 @@
  * This class has many test methods for testing the functions
  * that must be in a file named VectorFun.hpp
  *
- * Author  Rick Mercer and Your Name
+ * Author  Rick Mercer and Christian Soto, 2019
  */
 #include <vector>
 #include <string>
@@ -96,12 +96,12 @@ TEST_CASE("testSumIsGreater") {
 	vector<double> d4{1.1,2.2,3.3};
 	REQUIRE_FALSE(sumGreaterThan(d4,6.6));
 }
-/*
+
 TEST_CASE("testSumIsGreater2") {
     vector<double> x2 = {1.1, 2.2, 3.3};
     REQUIRE(!sumGreaterThan(x2, 6.6));
 }
-
+/*
 TEST_CASE("testFrequency") {
     vector<int> nums{1, 1, 1, 3, 3, 5, 6, 6, 10, 10, 10};
     vector<int> result = frequency(nums);
@@ -117,14 +117,29 @@ TEST_CASE("testFrequency") {
     REQUIRE(0 == result[9]);
     REQUIRE(3 == result[10]);
 }
+*/
+
 
 TEST_CASE("testFailedHowMany") {
-    vector<string> strs{"a", "C", "X", "x", "b", "a", "b",
+	vector<string> strs{"a", "C", "X", "x", "b", "a", "b",
                         "b", "a",
                         "b", "a"};
-    REQUIRE(4 == howMany(strs, "b"));
+	REQUIRE(4 == howMany(strs, "b"));
+
+	vector<string> s1{};
+	REQUIRE(0 == howMany(s1, "empty"));
+
+	vector<string> s2{"And", "there", "goes", "another"};
+	REQUIRE(1 == howMany(s2, "another"));
+
+	vector<string> s3{"And", "there", "goes", "another"};
+	REQUIRE(1 == howMany(s2, "Not here"));
+
+	vector<string> s4{"A", "a", "A", "a"};
+	REQUIRE(2 == howMany(s4, "A"));
 }
 
+/*
 TEST_CASE("testEvensLeft") {
     vector<int> a = {1, 2, 3, 4, 5, 6, 7};
     evensLeft(a);

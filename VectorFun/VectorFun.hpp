@@ -170,9 +170,21 @@ bool sumGreaterThan (std::vector<double> const &numbers,
 int howMany (std::vector<std::string> const &array,
              std::string const &valueToFind) {
 
-	//check length
-	
-    return -999;
+	//check empty array
+	if(array.size() == 0){
+		return 0;
+	}
+
+	auto num{0};
+
+	for(auto itr : array){
+
+		if(itr == valueToFind){
+			num += 1;
+		}
+	}
+
+    return num;
 }
 
 /*
