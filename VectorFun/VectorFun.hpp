@@ -330,9 +330,49 @@ void evensLeft (std::vector<int> &vec) {
 // Do NOT return anything
 template<typename T>
 void shiftNTimes (std::vector<T> &vec, int &&numShifts) {
+
+	//don't bother doing anything if there is only one element or empty
+	if(vec.size() <= 1 || numShifts == 0){
+		return;
+	}
+
+        auto n = numShifts%vec.size();
+
+	//if n is a multiple of the size of vec, return
+	//no need to do anything if everything is going to the samew
+	//place
+	if(n == 0){
+		return;
+	}
+
+	//temp vector to hold elements in danger of getting erased
+        std::vector<T> temp;
+
+	//fill temp vector with elements
+        for(auto index{0}; index < n; index++){
+                temp.push_back(vec[index]);
+        }
+
+        auto index{0};
+
+	//shift elements that need to be shifted
+        for(auto itr = vec.begin()+n; itr != vec.end(); itr++){
+                vec.at(index) = *itr;
+                index+=1;
+        }
+
+	//recalculate index
+        index = vec.size() -n;
+
+	//add elements to vec that were overwritten
+        for(auto itr = temp.begin(); itr != temp.end(); itr++){
+                vec.at(index) = *itr;
+                index+= 1;
+        }
+
 }
 
-/*
+
 // Return the range of the numbers in an array[].
 // The range is the maximum value - minimum value
 //
@@ -342,10 +382,34 @@ void shiftNTimes (std::vector<T> &vec, int &&numShifts) {
 //
 // Precondition: x.length >= 1
 int range (std::vector<int> const &x) {
-    // Do NOT use a return statement
-    return -999;
-}
 
+	//check length first
+	if(x.size() <=1){
+		return 0;
+	}
+
+	//find max value first
+	auto max{*x.begin()};
+
+	for(auto itr : x){
+		if(itr > max){
+			max = itr;
+		}
+	}
+
+	//find min
+	auto min{*x.begin()};
+
+	for(auto itr : x){
+		if(itr < min){
+			min = itr;
+		}
+	}
+
+	//return range
+	return max - min;
+}
+/*
 // Consider the series of numbers beginning at start and
 // running up to but not including end, so for example
 // start=1 and end=5 gives the series 1, 2, 3, 4. Return a

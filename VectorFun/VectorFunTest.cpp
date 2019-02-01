@@ -188,22 +188,80 @@ TEST_CASE("testEvensLeft") {
 	}
 }
 
-/*
+
 TEST_CASE("testShiftNTimes") {
-    vector<int> a = {1, 2, 3};
-    shiftNTimes(a, 1);
-    REQUIRE(2 == a[0]);
-    REQUIRE(3 == a[1]);
-    REQUIRE(1 == a[2]);
+	vector<int> a = {1, 2, 3};
+	shiftNTimes(a, 1);
+	REQUIRE(2 == a[0]);
+	REQUIRE(3 == a[1]);
+	REQUIRE(1 == a[2]);
+
+	vector<string> s1{"christian", "Johnny", "soto", "parra"};
+	shiftNTimes(s1, 0);
+	REQUIRE("christian" == s1[0]);
+	REQUIRE("Johnny" == s1[1]);
+	REQUIRE("soto" == s1[2]);
+	REQUIRE("parra" == s1[3]);
+
+	vector<string> s2{"christian", "Johnny", "soto", "parra"};
+	shiftNTimes(s2, 1);
+        REQUIRE("christian" == s2[3]);
+        REQUIRE("Johnny" == s2[0]);
+        REQUIRE("soto" == s2[1]);
+        REQUIRE("parra" == s2[2]);
+
+	vector<string> s3{"christian", "Johnny", "soto", "parra"};
+	shiftNTimes(s3, 2);
+        REQUIRE("soto" == s3[0]);
+        REQUIRE("parra" == s3[1]);
+        REQUIRE("christian" == s3[2]);
+        REQUIRE("Johnny" == s3[3]);
+
+	vector<string> s4{"christian", "Johnny", "soto", "parra"};
+	shiftNTimes(s4, 3);
+        REQUIRE("christian" == s4[1]);
+        REQUIRE("Johnny" == s4[2]);
+        REQUIRE("soto" == s4[3]);
+        REQUIRE("parra" == s4[0]);
+
+	vector<string> s5{"christian", "Johnny", "soto", "parra"};
+	shiftNTimes(s5, 4);
+        REQUIRE("christian" == s5[0]);
+        REQUIRE("Johnny" == s5[1]);
+        REQUIRE("soto" == s5[2]);
+        REQUIRE("parra" == s5[3]);
+
+	vector<string> s6{"christian", "Johnny", "soto", "parra"};
+	shiftNTimes(s6, 8);
+        REQUIRE("christian" == s6[0]);
+        REQUIRE("Johnny" == s6[1]);
+        REQUIRE("soto" == s6[2]);
+        REQUIRE("parra" == s6[3]);
+
+	vector<int> v2{1,2,3,4,5,6,7};
+	shiftNTimes(v2, 3);
+	REQUIRE(4 == v2[0]);
+	REQUIRE(3 == v2[6]);
+
+	vector<int>v3{999};
+	shiftNTimes(v3, 10000);
+	REQUIRE(999 == v3[0]);
+
 }
 
-
+/*
 TEST_CASE("testRange") {
-    vector<int> x = { 4 };
-    REQUIRE(0 == range(x));
+	vector<int> x = { 4 };
+	REQUIRE(0 == range(x));
+
+	vector<int> x1 ={1,2,3,4};
+	REQUIRE(3 == range(x1));
+
+	vector <int> x2 = {1,2,3};
+	REQUIRE(7 == range(x2));
 }
 
-
+/*
 TEST_CASE("fizzBuzz") {
     vector<string> strs = fizzBuzz(1, 6);
     REQUIRE("1" == strs[0]);
