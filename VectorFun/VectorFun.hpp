@@ -409,14 +409,14 @@ int range (std::vector<int> const &x) {
 	//return range
 	return max - min;
 }
-/*
+
 // Consider the series of numbers beginning at start and
 // running up to but not including end, so for example
 // start=1 and end=5 gives the series 1, 2, 3, 4. Return a
 // new std::vector<std:string> containing the string form
 // of these numbers. However for multiples of 3, store "Fizz"
 // instead of the number. For multiples of 5 use "Buzz".
-// For multiples of both 3 and 5 use "FizzBuzz". In C++,
+	// For multiples of both 3 and 5 use "FizzBuzz". In C++,
 // std::to_string will make a str::string from an int.
 // std::to_string(12) returns the string literal "12"
 //
@@ -427,8 +427,23 @@ int range (std::vector<int> const &x) {
 // Precondition: end > start so the return so vector's size() >= 1
 std::vector<std::string>
 fizzBuzz (unsigned long &&start, unsigned long &&end) {
-    // Do NOT use a return statement
-    return { "X", "Y", "Z" };
+
+	std::vector<std::string> result;
+
+	for(auto i = start; i<end; i++){
+
+		if(i%3 ==0 && i%5 ==0){
+			result.push_back("FizzBuzz");
+		}else if(i%3==0){
+			result.push_back("Fizz");
+		}else if(i%5 == 0){
+			result.push_back("Buzz");
+		}else{
+			result.push_back(std::to_string(i));
+		}
+
+	}
+
+	return result;
 }
-*/
 #endif // SRC_VECTORFUN_HPP_

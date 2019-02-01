@@ -249,7 +249,7 @@ TEST_CASE("testShiftNTimes") {
 
 }
 
-/*
+
 TEST_CASE("testRange") {
 	vector<int> x = { 4 };
 	REQUIRE(0 == range(x));
@@ -257,17 +257,22 @@ TEST_CASE("testRange") {
 	vector<int> x1 ={1,2,3,4};
 	REQUIRE(3 == range(x1));
 
-	vector <int> x2 = {1,2,3};
+	vector <int> x2 = {1,2,-3, 4};
 	REQUIRE(7 == range(x2));
 }
 
-/*
 TEST_CASE("fizzBuzz") {
-    vector<string> strs = fizzBuzz(1, 6);
-    REQUIRE("1" == strs[0]);
-    REQUIRE("2" == strs[1]);
-    REQUIRE("Fizz" == strs[2]);
-    REQUIRE("4" == strs[3]);
-    REQUIRE("Buzz" == strs[4]);
+	vector<string> strs = fizzBuzz(1, 6);
+	REQUIRE("1" == strs[0]);
+	REQUIRE("2" == strs[1]);
+	REQUIRE("Fizz" == strs[2]);
+	REQUIRE("4" == strs[3]);
+	REQUIRE("Buzz" == strs[4]);
+
+	vector<string> s1 = fizzBuzz(14, 21);
+	REQUIRE("14" == s1[0]);
+	REQUIRE("FizzBuzz" == s1[1]);
+	REQUIRE("16" == s1[2]);
+	REQUIRE("Buzz" == s1[6]);
 }
-*/
+
