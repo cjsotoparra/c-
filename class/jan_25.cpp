@@ -1,20 +1,19 @@
 #include <iostream>
+#include <fstream>
+using namespace std;
 
-int sum(std::initializer_list<int> list){
-
-	int sum = 0;
-	for(int next : list){
-		sum+= next;
-	}
-
-	return sum;
-}
 int main(){
 
-	auto str1 {"one"};
-	auto str2 {"two"};
+	int n;
+	double x;
+	string str;
+	ifstream inFile;
+	inFile.open("input.txt");
+	cout << "Good? " << inFile.good() << endl;
+	inFile >> n >> x >> str;
+	cout << " n: " << n << endl;
+	cout << " x: " << x << endl;
+	cout << "str: " << str << endl;
 
-	
-	std::cout << typeid(num1).name() << std::endl;
 return 0;
 }
