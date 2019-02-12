@@ -6,13 +6,9 @@
 
 #IncludeRegexTransform: 
 
-/home/christian/cplus/PiggyBank/PiggyBank.h
-
-/home/christian/cplus/PiggyBank/main.cpp
+/home/christian/cplus/PiggyBank/PiggyBank.cpp
 PiggyBank.h
 /home/christian/cplus/PiggyBank/PiggyBank.h
-iostream
--
-assert.h
--
+
+/home/christian/cplus/PiggyBank/PiggyBank.h
 
