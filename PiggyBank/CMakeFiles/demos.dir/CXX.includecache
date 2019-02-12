@@ -1,0 +1,18 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/christian/cplus/PiggyBank/PiggyBank.h
+
+/home/christian/cplus/PiggyBank/main.cpp
+PiggyBank.h
+/home/christian/cplus/PiggyBank/PiggyBank.h
+iostream
+-
+assert.h
+-
+
