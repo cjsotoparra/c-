@@ -97,8 +97,52 @@ public:
     // The return values should always be in the range of 0 through 8.
     // return the number of neighbors around any cell using wrap around.
     int neighborCount (int row, int col) const {
-        // TODO: Complete this method
-        return theSociety.size();
+
+	int count = 0;
+
+	//check left of row and col
+	int upRow = ((theSociety.size() + row) -1) % theSociety.size();
+	int downRow = ((theSociety.size() + row) + 1) % theSociety.size();
+	int leftCol = ((theSociety[0].size() + col) - 1) % theSociety[0].size();
+
+	//left side
+	if(theSociety[upRow][leftCol] == true){
+		count += 1;
+	}
+
+	if(theSociety[row][leftCol] == true){
+		count+= 1;
+	}
+
+	if(theSociety[downRow][leftCol] == true){
+		count += 1;
+	}
+
+	//check middle of row and col
+	if(theSociety[upRow][col] == true){
+		count += 1;
+	}
+
+	if(theSociety[downRow][col] == true){
+		count += 1;
+	}
+
+	//check right of row and col
+	int rightCol = ((theSociety[0].size() + col) + 1) % theSociety[0].size();
+
+	if(theSociety[row][rightCol] == true){
+		count += 1;
+	}
+
+	if(theSociety[upRow][rightCol] == true){
+		count += 1;
+	}
+
+	if(theSociety[downRow][rightCol] == true){
+		count += 1;
+	}
+
+        return count;
     }
 
     // Change the state to the next society of cells
