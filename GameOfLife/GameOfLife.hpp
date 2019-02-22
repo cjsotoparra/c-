@@ -35,6 +35,13 @@ public:
 
     // Grow a cell at the given location
     void growCellAt (unsigned long row, unsigned long col) {
+
+	//error check
+	if(row < 0 || col < 0 || row >= theSociety.size() || col >= theSociety[0].size()){
+		return;
+	}
+
+	//else grow a cell at the location row and col
         theSociety[row][col] = true;
     }
 
