@@ -16,13 +16,16 @@ int main(){
 	world.growCellAt(0,8);
 	world.growCellAt(2,8);
 	world.growCellAt(3,8);
-	world.growCellAt(4,8);
+//	world.growCellAt(4,8);
 	std::string worldStr = world.toString();
 
 	std::cout << worldStr << std::endl;
-	std::cout << world.neighborCount(0,5) << std::endl;
-        std::cout << world.neighborCount(3,8) << std::endl;
-        std::cout << world.neighborCount(4,8) << std::endl;
+	std::cout << "0,5: " << world.neighborCount(0,5) << std::endl;
+        std::cout << "3,8: " << world.neighborCount(3,8) << std::endl;
+  //      std::cout << "4,8: " << world.neighborCount(4,8) << std::endl;
+	std::cout << "2,8: " << world.neighborCount(2,8) << std::endl;
+	std::cout << "2,0: " << world.neighborCount(2,0) << std::endl;
+	std::cout << "1,0: " << world.neighborCount(1,0) << std::endl;
 
 	return 0;
 }
