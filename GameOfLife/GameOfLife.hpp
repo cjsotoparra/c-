@@ -27,8 +27,8 @@ public:
     // Construct a board that is rows by cols size
     // with all elements set to false
     GameOfLife (unsigned long rows, unsigned long cols) {
-        // TODO: Complete this method
 
+	//make a 2d vector of size rows and cols
 	std::vector<std::vector<bool> > s(rows, std::vector<bool> (cols, false));
 	this->theSociety = s;
     }
@@ -59,7 +59,7 @@ public:
 	for(unsigned long  row = 0; row < theSociety.size(); row++){
 		for(unsigned long col = 0; col <= theSociety[0].size(); col++){
 
-			if(col != 0 && col % this->theSociety.size() == 0){
+			if(col != 0 && col % this->theSociety[0].size() == 0){
 
 				if(row == theSociety.size()-1){
 					break;
@@ -98,7 +98,7 @@ public:
     // return the number of neighbors around any cell using wrap around.
     int neighborCount (int row, int col) const {
         // TODO: Complete this method
-        return -9999;
+        return theSociety.size();
     }
 
     // Change the state to the next society of cells
