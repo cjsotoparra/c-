@@ -1,0 +1,1 @@
+/usr/bin/c++     CMakeFiles/demo.dir/GameOfLife.cpp.o CMakeFiles/demo.dir/catch-main.cpp.o  -o demo 

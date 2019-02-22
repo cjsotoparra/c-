@@ -12,5 +12,8 @@ int main(){
 
 	assert(anAcct.getTotalCashInBank() == .73);
 	std::cout << anAcct.getTotalCashInBank() <<std::endl;
+
+	anAcct.addDimes(3);
+	std::cout << anAcct.getTotalCashInBank() << std::endl;
 	return 0;
 }
