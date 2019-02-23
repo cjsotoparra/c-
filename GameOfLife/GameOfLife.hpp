@@ -2,7 +2,7 @@
  * GameOfLife.cpp
  *
  *  Created on: Feb 18, 2019
- *      Author: mercer
+ *      Author: mercer and Christian Soto
  *
  * This class models a society of cells growing according
  * to the rules of John Conway's Game of Life.
@@ -54,10 +54,14 @@ public:
     // Returns the colony as one big string
     std::string toString () const {
 
+	//empty string that will be built
 	std::string myStr = "";
+
+	//iterate through the 2d vector
 	for(auto  row = 0; row < theSociety.size(); row++){
 		for(auto col = 0; col <= theSociety[0].size(); col++){
 
+			//if col is at the end, insert a newline char
 			if(col != 0 && col % this->theSociety[0].size() == 0){
 
 				if(row == theSociety.size()-1){
@@ -66,16 +70,21 @@ public:
 
 				myStr += "\n";
 
+			//if theSociety[row][col] is false, insert "." else "O"
 			}else if(theSociety[row][col] == false){
 				myStr += ".";
 			}else{
 				myStr+= "O";
-			}
-		}
 
-	}
+			}//if else
+
+		}//inner loop
+
+	}//outer loop
+
         return myStr;
-    }
+
+    }//toString
 
     // Count the neighbors around the given location.
     // Use wraparound. A cell in row 0 has neighbors in
@@ -141,15 +150,19 @@ public:
 		count += 1;
 	}
 
+	//return neighborCount
         return count;
-    }
+
+    }//neighborCount
 
     // Change the state to the next society of cells
     void update () {
 
+	//make row and col varaibles for new 2d vector
 	unsigned long row = theSociety.size();
 	unsigned long col = theSociety[0].size();
 
+	//new 2d vector represents T = t + 1 or new time;
 	std::vector<std::vector<bool>> t1(row, std::vector<bool> (col, false));
 
 	//iterate through the matirx
@@ -176,6 +189,7 @@ public:
 
 	}//for loop1
 
+	//theSociety now equals t1 indicating time T-t+1 has passed
 	theSociety = t1;
 
     }//update
