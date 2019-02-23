@@ -47,17 +47,16 @@ public:
 
     // Check to see if a cell is at the given location
     bool cellAt (unsigned long row, unsigned long col) const {
-        // TODO: Complete this method
+
         return theSociety[row][col] == true;
     }
 
     // Returns the colony as one big string
     std::string toString () const {
-        // TODO: Complete this method
 
-	std::string myStr;
-	for(unsigned long  row = 0; row < theSociety.size(); row++){
-		for(unsigned long col = 0; col <= theSociety[0].size(); col++){
+	std::string myStr = "";
+	for(auto  row = 0; row < theSociety.size(); row++){
+		for(auto col = 0; col <= theSociety[0].size(); col++){
 
 			if(col != 0 && col % this->theSociety[0].size() == 0){
 
@@ -98,12 +97,12 @@ public:
     // return the number of neighbors around any cell using wrap around.
     int neighborCount (int row, int col) const {
 
-	int count = 0;
+	auto count {0};
 
 	//check left of row and col
-	int upRow = ((theSociety.size() + row) -1) % theSociety.size();
-	int downRow = ((theSociety.size() + row) + 1) % theSociety.size();
-	int leftCol = ((theSociety[0].size() + col) - 1) % theSociety[0].size();
+	auto upRow = ((theSociety.size() + row) -1) % theSociety.size();
+	auto downRow = ((theSociety.size() + row) + 1) % theSociety.size();
+	auto leftCol = ((theSociety[0].size() + col) - 1) % theSociety[0].size();
 
 	//left side
 	if(theSociety[upRow][leftCol] == true){
@@ -128,7 +127,7 @@ public:
 	}
 
 	//check right of row and col
-	int rightCol = ((theSociety[0].size() + col) + 1) % theSociety[0].size();
+	auto rightCol = ((theSociety[0].size() + col) + 1) % theSociety[0].size();
 
 	if(theSociety[row][rightCol] == true){
 		count += 1;
@@ -147,8 +146,39 @@ public:
 
     // Change the state to the next society of cells
     void update () {
-        // TODO: Complete this method
-    }
+
+	unsigned long row = theSociety.size();
+	unsigned long col = theSociety[0].size();
+
+	std::vector<std::vector<bool>> t1(row, std::vector<bool> (col, false));
+
+	//iterate through the matirx
+        for(auto  row = 0; row < theSociety.size(); row++){
+                for(auto col = 0; col < theSociety[0].size(); col++){
+
+			//a cell is born  if 3 it has exactly three nieghbors
+			if(neighborCount(row,col) == 3 && theSociety[row][col] == false){
+
+				t1[row][col] = true;
+
+			//a cell dies from isolation if it has less than 2 neighbors
+			//or more dies from overcrowding if there are more than 3 neighbors
+			} else if((neighborCount(row, col) < 2 || neighborCount(row, col) > 3) && theSociety[row][col] == true){
+
+				t1[row][col] = false;
+
+			//cell stays alive if there are at least 2 or 3 neighbors
+			}else if(theSociety[row][col] == true && (neighborCount(row, col) == 2 || neighborCount(row, col) == 3)){
+
+				t1[row][col] = true;
+			}
+		}//for loop 2
+
+	}//for loop1
+
+	theSociety = t1;
+
+    }//update
 
 };
 
