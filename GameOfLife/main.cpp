@@ -13,14 +13,18 @@ int main(){
 	world.growCellAt(2,3);
 	world.growCellAt(2,4);
 
-	std::string worldStr = world.toString();
+	std::string worldStr = " ";
 
-	std::cout << "T-0" << std::endl;
-	std::cout << worldStr << std::endl;
+	for(int i = 0; i<5; i++){
+		worldStr = world.toString();
 
-	world.update();
+		std::cout << "T-" << i << std::endl;
+		std::cout << worldStr << std::endl;
 
-	worldStr = world.toString();
+		world.update();
+	}
+
+	/*worldStr = world.toString();
 
 	std::cout << "T-1" << std::endl;
 	std::cout << worldStr << std::endl;
@@ -44,7 +48,7 @@ int main(){
         worldStr = world.toString();
 
         std::cout << "T-4" << std::endl;
-        std::cout << worldStr << std::endl;
+        std::cout << worldStr << std::endl;*/
 
 	return 0;
 }
