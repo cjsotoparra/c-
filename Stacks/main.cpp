@@ -13,36 +13,141 @@ public:
     virtual void push (Type const &) = 0; // push element
     virtual Type pop () = 0; // return top element & remove
     virtual Type top () const = 0;      // return top el
-    virtual bool isEmpty () const = 0;  // return true
+    virtual bool isEmpty () const = 0;  // return true or false
 };
 
-/*
 /////////// VectorStack //////////////
 template<class T>
 class VectorStack : Stack<T> {
-    // You will get many errors until this implements the
-    // four methods or you comment out this class
+private:
+	vector<T> data;
+
+public:
+
+	void push (T const &el){
+
+		data.push_back(el);
+
+	}
+
+	T pop(){
+
+		T temp = data.at(data.size()-1);
+		data.pop_back();
+		return temp;
+	}
+
+	T top () const {
+		return data.at(data.size()-1);
+	}
+
+	bool isEmpty() const{
+		return data.size() == 0;
+	}
 };
-
-
 
 //////////// ArrayStack //////////////
 template<class T>
 class ArrayStack : Stack<T> {
 private:
    T data[1000];
+   int count = 0;
 
-    // You will get many errors until this implements the
-    // four methods or you comment out this class
+public:
+
+	void push (T const &el){
+
+		data[count] = el;
+		count+= 1;
+	}
+
+	T pop(){
+
+		T temp = data[count-1];
+		data[count];
+		count =count -1;
+		return temp;
+
+	}
+
+	T top() const{
+
+		return data[count-1];
+	}
+
+	bool isEmpty() const {
+		return count == 0;
+	}
 };
-
-
 
 ///////// LinkedStack
 template<class T>
 class LinkedStack : Stack<T> {
-    // You will get many errors until this implements the
-    // four methods or you comment out this class
+private:
+	struct Node {
+		T data;
+		Node *next;
+
+	Node(T const &el){
+		data = el;
+		next = nullptr;
+	}
+
+	};
+
+	Node *first = nullptr;
+	int n = 0;
+
+public:
+
+	void push (T const &el){
+
+		if(n == 0){
+			first = new Node(el);
+		} else {
+			Node *newNode = new Node(el);
+			Node *temp = first;
+
+			while(temp->next != nullptr){
+				temp = temp->next;
+			}
+
+			temp->next = newNode;
+		}
+
+		n+= 1;
+	}
+
+	T pop () {
+
+		Node *temp = first;
+		Node *prev;
+
+		while(temp->next != nullptr){
+			prev = temp;
+			temp = temp->next;
+		}
+
+		T data = temp->data;
+		prev->next = nullptr;
+		n+= -1;
+		return data;
+	}
+
+	T top () const{
+
+		Node *temp = first;
+
+		while(temp->next != nullptr){
+			temp = temp->next;
+		}
+
+		return temp->data;
+	}
+
+	bool isEmpty() const{
+		return n == 0;
+	}
 };
 
 
@@ -69,9 +174,6 @@ int main () {
     cout << stringStack.pop() << endl;
     cout << endl;
 
-    return 0;
-}
-/*
     // Show ArrayStack<T>
     ArrayStack<int> arrayStack;
     arrayStack.push(1);
@@ -82,6 +184,7 @@ int main () {
     while(! arrayStack.isEmpty()) {
         cout << arrayStack.pop() << " ";
     }
+
     cout << endl;
     cout << endl;
 
@@ -93,8 +196,13 @@ int main () {
     linkedStack.push(4);
     cout << "LinkedStack top: " << linkedStack.top() << endl;
     while(! linkedStack.isEmpty()) {
-        cout << linkedStack.pop() << " ";
+        cout << linkedStack.top() << " ";
+	linkedStack.pop();
     }
 
+    cout << endl;
+
+    return 0;
+
 }
-*/
+
