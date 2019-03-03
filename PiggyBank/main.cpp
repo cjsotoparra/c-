@@ -10,8 +10,9 @@ int main(){
 	anAcct.addPennies(3);
 	anAcct.addDimes(4);
 
-	assert(anAcct.getTotalCashInBank() == .73);
 	std::cout << anAcct.getTotalCashInBank() <<std::endl;
+//	assert(anAcct.getTotalCashInBank() == 0.73);
+//	std::cout << anAcct.getTotalCashInBank() <<std::endl;
 
 	anAcct.addDimes(3);
 	std::cout << anAcct.getTotalCashInBank() << std::endl;

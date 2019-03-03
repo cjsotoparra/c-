@@ -1,3 +1,15 @@
+/*
+ * main.cpp
+ *
+ *  Created on: Feb 25, 2019
+ *      Author: mercer and Christian Soto
+ *
+ * This class models a class inheritance, interface and polymorphism using
+ * Stacks with 3 different data structures(Arrays, Vectors, and Linked list).
+ *
+ */
+
+
 #include <iostream>
 #include <vector>
 #include <cstdlib>

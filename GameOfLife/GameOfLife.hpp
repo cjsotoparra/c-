@@ -22,6 +22,7 @@ class GameOfLife {
 // --Data Member(s)
 private:
     std::vector<std::vector<bool>> theSociety;
+    std::vector<unsigned long> cells;
 
 public:
     // Construct a board that is rows by cols size
@@ -41,6 +42,10 @@ public:
 		return;
 	}
 
+	//store cell cordinates
+        cells.push_back(row);
+        cells.push_back(col);
+
 	//else grow a cell at the location row and col
         theSociety[row][col] = true;
     }
@@ -48,6 +53,7 @@ public:
     // Check to see if a cell is at the given location
     bool cellAt (unsigned long row, unsigned long col) const {
 
+	//make cell alive
         return theSociety[row][col] == true;
     }
 

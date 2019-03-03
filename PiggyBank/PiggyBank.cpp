@@ -19,10 +19,13 @@ PiggyBank::PiggyBank(){
 void PiggyBank::addPennies(int penniesEntered){
 
 	//add the number of pennies
-	for(auto i{0}; i < penniesEntered; i++){
+/*	for(auto i{0}; i < penniesEntered; i++){
 
 		this->pennies+= .01;
-	}
+	}*/
+
+	auto amount = penniesEntered * .01;
+	this->pennies += amount;
 
 }//addPennies
 
@@ -31,9 +34,12 @@ void PiggyBank::addPennies(int penniesEntered){
 void PiggyBank::addNickels(int numberOfNickels){
 
 	//add the number of nickels
-	for(auto i{0}; i < numberOfNickels; i++){
+	/*for(auto i{0}; i < numberOfNickels; i++){
 		this->nickels += .05;
-	}
+	}*/
+
+	auto amount = numberOfNickels * .05;
+	this->nickels += amount;
 
 }//addNickels
 
@@ -43,9 +49,12 @@ void PiggyBank::addNickels(int numberOfNickels){
 void PiggyBank::addDimes(int numberOfDimes){
 
 	//add the number of dimes
-	for(auto i {0}; i < numberOfDimes; i++){
+	/*for(auto i {0}; i < numberOfDimes; i++){
 		this->dimes += .10;
-	}
+	}*/
+
+	auto amount = numberOfDimes * .10;
+	this->dimes += amount;
 
 }//addDimes
 
@@ -54,6 +63,6 @@ void PiggyBank::addDimes(int numberOfDimes){
 // are $0.10  (no quarters, halves, or dollar coins allowed to save time).
 double PiggyBank::getTotalCashInBank(){
 
-	return pennies + dimes + nickels;
+	return this->pennies + this->dimes + this->nickels;
 
 }//getTotalCashInBank
