@@ -15,6 +15,7 @@
 #include <string>
 #include <vector>
 #include <iostream>
+using namespace std;
 
 // You may not use an existing sort function for this.
 // If you do, you will lose all points!

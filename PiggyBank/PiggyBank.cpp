@@ -18,12 +18,6 @@ PiggyBank::PiggyBank(){
 // Precondition: penniesEntered >= 1
 void PiggyBank::addPennies(int penniesEntered){
 
-	//add the number of pennies
-/*	for(auto i{0}; i < penniesEntered; i++){
-
-		this->pennies+= .01;
-	}*/
-
 	auto amount = penniesEntered * .01;
 	this->pennies += amount;
 
@@ -32,11 +26,6 @@ void PiggyBank::addPennies(int penniesEntered){
 // An addNickels message adds the given number of nickles to this PiggyBank
 // Precondition: numberOfNickels >= 1
 void PiggyBank::addNickels(int numberOfNickels){
-
-	//add the number of nickels
-	/*for(auto i{0}; i < numberOfNickels; i++){
-		this->nickels += .05;
-	}*/
 
 	auto amount = numberOfNickels * .05;
 	this->nickels += amount;
@@ -47,11 +36,6 @@ void PiggyBank::addNickels(int numberOfNickels){
 // An addSimes message adds the given number of dimes to this PiggyBank
 // Precondition: numberOfDimes >= 1
 void PiggyBank::addDimes(int numberOfDimes){
-
-	//add the number of dimes
-	/*for(auto i {0}; i < numberOfDimes; i++){
-		this->dimes += .10;
-	}*/
 
 	auto amount = numberOfDimes * .10;
 	this->dimes += amount;
