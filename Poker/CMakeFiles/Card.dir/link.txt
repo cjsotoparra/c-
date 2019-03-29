@@ -1,0 +1,1 @@
+/usr/bin/c++     CMakeFiles/Card.dir/catch-main.cpp.o CMakeFiles/Card.dir/CardTest.cpp.o  -o Card 
