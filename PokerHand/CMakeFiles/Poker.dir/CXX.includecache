@@ -469,12 +469,12 @@ iostream
 /home/christian/cplus/PokerHand/52Cards.hpp
 
 /home/christian/cplus/PokerHand/PokerHandTest.cpp
-PokerHand.hpp
-/home/christian/cplus/PokerHand/PokerHand.hpp
-52Cards.hpp
-/home/christian/cplus/PokerHand/52Cards.hpp
 catch.hpp
 /home/christian/cplus/PokerHand/catch.hpp
+52Cards.hpp
+/home/christian/cplus/PokerHand/52Cards.hpp
+PokerHand.hpp
+/home/christian/cplus/PokerHand/PokerHand.hpp
 
 /home/christian/cplus/PokerHand/catch.hpp
 TargetConditionals.h

@@ -248,7 +248,7 @@ TEST_CASE ("StraightFlushTest") {
         REQUIRE(full < sF);
 	REQUIRE(four < sF);
 
-        PokerHand lSF(H2, H4, HA, H3, H5); //wheel straight flush
+        PokerHand lSF(H2, H4, HA, H3, H5); //wheel straight flush 
 
         //check tie, sF is higher
         REQUIRE(lSF < sF);
@@ -262,7 +262,6 @@ TEST_CASE ("StraightFlushTest") {
 }
 
 TEST_CASE ("ROYAL_FLUSH_Test") {
-
         //Test order
         PokerHand p(D3, D4, C6, S6, HQ);
         PokerHand two(CA, C2, SA, D2, H5);

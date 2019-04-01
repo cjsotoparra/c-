@@ -185,7 +185,7 @@ public:
 		auto index{0};
 
 		//find the first 3 cards, and update index
-		for(auto i{0}; i<2; i++){
+		for(auto i{0}; i<3; i++){
 			index = i;
 
 			if((myHand.at(i).getValue() != myHand.at(i+1).getValue()) && i == 0){
