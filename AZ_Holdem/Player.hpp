@@ -2,9 +2,15 @@
  *
  * Player.hpp
  *
+ *The Player.hpp file is a class that holds Cards, community cards
+ * and determines what their best hand is.  It then returns this information to
+ * AZ_Holdem class.  Within this class, it holds a PokerHand.hpp class and
+ * Card.cpp class.
+ *
  * Programmer: Christian Soto, 2019
  *
  */
+
 #ifndef SRC_PLAYER_HPP_
 #define SRC_PLAYER_HPP
 
@@ -27,11 +33,14 @@ private:
 public:
 
 	//Construtor
-	Player(){
+		Player(){
 
 		player_money = 100.00;
 	}
 
+	/********************************
+	*		Getters		*
+	********************************/
 	double getMoney() const{
 		return this->player_money;
 	}
@@ -52,7 +61,9 @@ public:
 		return this->poker_cards;
 	}
 
-	/**************setters*********************/
+        /********************************
+        *               setters         *
+        ********************************/
 
 	void setName(int i){
 		i += 1;
@@ -114,6 +125,7 @@ public:
 		this->best_hand = poker_cards[20].getMyHand();
 	}
 
+	//clear players cards and hands for next round
 	void clearPlayer(){
 
 		this->best_hand.clear();
@@ -122,26 +134,32 @@ public:
 		this->poker_cards.clear();
 	}
 
+	//operand overloader for sorting
 	bool operator<( const Player &other) const{
 		return this->poker_cards[20] < other.getPHand()[20];
 	}
 
+	//add money to player
 	void addMoney(double money){
 		this->player_money += money;
 	}
 
+	//print money for the player
 	void printMoney(){
 		cout << this->player_money;
 	}
 
+	//print players name
 	void printName(){
 		cout << this->player_name;
 	}
 
+	//bet the players money
 	void bet(double money){
 		this->player_money = this->player_money - money;
 	}
 
+	//Print the players cards
 	void printCards(){
 
 		for(auto i = 0; i < this->getCards().size(); i++){
@@ -152,6 +170,7 @@ public:
 		cout << endl;
 	}
 
+	//print the players best hand
 	void printBestHand(){
 
                 for(auto i = 0; i < this->getBestHand().size(); i++){
@@ -164,6 +183,7 @@ public:
 
 	}
 
+	//print players Community cards
 	void printComCards(){
 
 		for(auto i{0}; i < this->comCards.size(); i++){
@@ -174,10 +194,12 @@ public:
 		cout << endl;
 	}
 
+	//add a card to the players cards
 	void push_card(Card someCard){
 		this->player_cards.push_back(someCard);
 	}
 
+	//this combines the players cards and community cards to be used later
 	void combineCards(vector<Card> b){
 
 		//combine the community cards and player cards

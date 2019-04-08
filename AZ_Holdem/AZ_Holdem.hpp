@@ -1,3 +1,17 @@
+/*
+ * AZ_Holdem.hpp
+ *
+ * AZ_Holdem.hpp is program that runs a simulation of the game texas holdem.
+ * In it's file, it holds three 2 classes header files, Dealer and Player.
+ * The Dealer class is in charge of the deck and dealing cards to players.
+ * The Player class is in charge of holding it's 2 cards and building the 
+ * the best hand from community cards.  AZ_Holdem, then takes all that
+ * information and determines the winner.
+ *
+ * Programmer Christian Soto, 2019
+*/
+
+
 #include "Dealer.hpp"
 #include "Player.hpp"
 #include <iostream>
@@ -141,9 +155,11 @@ public:
 		//iterate through the players
 		for(auto i{0}; i < numOfPlayers.size()-1; i++){
 
-			winnerIndex += 1;
-			//we know we have a tie
-			if(!(numOfPlayers[i] < numOfPlayers[i+1])){
+			winnerIndex = winnerIndex + 1;
+
+			// we know we have a tie if current index is not less than
+			// the greatest hand at the end of the index
+			if(!(numOfPlayers[i] < numOfPlayers[numOfPlayers.size()-1])){
 
 				return i;
 			}
@@ -156,6 +172,7 @@ public:
 	void printWinner(int winner){
 
 		float numberOfWinners = 0;
+
 		//check for tie
 		if(winner != this->numOfPlayers.size()-1){
 

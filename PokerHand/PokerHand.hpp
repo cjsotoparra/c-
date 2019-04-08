@@ -518,10 +518,10 @@ public:
 					} else{
 
 						//else compare kickers
-						auto kicker1 = findKicker(getMyHand());
-						auto kicker2 = findKicker(other.getMyHand());
+				//		auto kicker1 = findKicker(getMyHand());
+				//		auto kicker2 = findKicker(other.getMyHand());
 
-						return getMyHand().at(kicker1).getValue() < other.getMyHand().at(kicker2).getValue();
+						return getMyHand().at(4).getValue() < other.getMyHand().at(4).getValue();
 					}//check kicker and low pair
 				}//check high pair
 

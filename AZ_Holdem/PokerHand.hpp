@@ -1,6 +1,11 @@
 /*
  * PokerHand.hpp
  *
+ * This header files contains the implementation of creating a poker hand
+ * and determining what the hand rank is based on the cards it has.
+ * It also determine whether a hand is greater or less than another hand 
+ * based on the rules of Traditional Poker.
+ *
  * @Programmer: Christian Soto, 2019
 */
 
@@ -48,7 +53,10 @@ public:
 		hRank = setHand();
 	}
 
-        /*********************Getters****************/
+	/****************************************
+        *               Getters			*
+        *****************************************/
+
         vector<Card> getMyHand() const{
 
                 return this->myHand;
@@ -341,7 +349,10 @@ public:
 		}
 	}
 
-	/**********************Setters******************************/
+	/****************************************
+        *               Setters                 *
+        *****************************************/
+
 	 HandRanking setHand(){
 
 		//set the what kind of hand it is, start with the highest
