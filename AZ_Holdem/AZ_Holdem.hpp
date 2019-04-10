@@ -4,13 +4,12 @@
  * AZ_Holdem.hpp is program that runs a simulation of the game texas holdem.
  * In it's file, it holds three 2 classes header files, Dealer and Player.
  * The Dealer class is in charge of the deck and dealing cards to players.
- * The Player class is in charge of holding it's 2 cards and building the 
+ * The Player class is in charge of holding it's 2 cards and building the
  * the best hand from community cards.  AZ_Holdem, then takes all that
  * information and determines the winner.
  *
  * Programmer Christian Soto, 2019
 */
-
 
 #include "Dealer.hpp"
 #include "Player.hpp"
@@ -101,7 +100,7 @@ public:
 		for(auto i{0}; i< this->numOfPlayers.size(); i++){
 
 			this->numOfPlayers[i].printName();
-			cout << ": ";
+			cout << ": $";
 			this->numOfPlayers[i].printMoney();
 			cout << " - ";
 			this->numOfPlayers[i].printCards();

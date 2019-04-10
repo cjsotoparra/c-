@@ -125,7 +125,18 @@ public:
 		this->best_hand = poker_cards[20].getMyHand();
 	}
 
-	//clear players cards and hands for next round
+        /****************************************************************
+        *  Method: clearPlayer                                          *
+        *                                                               *
+        *  Purpose: This function clears the player's vectors to get 	*
+        *           ready for the round of poker.                       *
+        *                                                               *
+        *  Parameters: none.	                                        *
+        *                                                               *
+        *  PreConditions: none.                 			*
+        *                                                               *
+        *  Returns: none.					        *
+        ****************************************************************/
 	void clearPlayer(){
 
 		this->best_hand.clear();
@@ -134,32 +145,95 @@ public:
 		this->poker_cards.clear();
 	}
 
-	//operand overloader for sorting
+        /****************************************************************
+        *  Method: operator<		                                *
+        *                                                               *
+        *  Purpose: This function overrides the operand less than to see*
+        *           if another player poker hand is less.  This also    *
+       	*	    helps with sorting the poker hands			*
+	*                                                               *
+        *  Parameters: Player 		                                *
+        *                                                               *
+        *  PreConditions: a sorted vector of a player's poker hand.     *
+        *                                                               *
+        *  Returns: true if this player's poker hand is less, else false*
+        ****************************************************************/
 	bool operator<( const Player &other) const{
 		return this->poker_cards[20] < other.getPHand()[20];
 	}
 
-	//add money to player
+        /****************************************************************
+        *  Method: addMoney	                                        *
+        *                                                               *
+        *  Purpose: This function is to add money to the player's money.*
+        *                                                               *
+        *  Parameters: double	                                        *
+        *                                                               *
+        *  PreConditions: none.			                        *
+        *                                                               *
+        *  Returns: none.				                *
+        ****************************************************************/
 	void addMoney(double money){
 		this->player_money += money;
 	}
 
-	//print money for the player
+        /****************************************************************
+        *  Method: printMoney 	                                        *
+        *                                                               *
+        *  Purpose: This function prints the player's current money	*
+        *           balance		                                *
+        *                                                               *
+        *  Parameters: none.	                                        *
+        *                                                               *
+        *  PreConditions: none.			  	                *
+        *                                                               *
+        *  Returns: none.					        *
+        ****************************************************************/
 	void printMoney(){
 		cout << this->player_money;
 	}
 
-	//print players name
+        /****************************************************************
+        *  Method: printName	                                        *
+        *                                                               *
+        *  Purpose: This function prints the player's name.		*
+        *                                                               *
+        *  Parameters: none.	                                        *
+        *                                                               *
+        *  PreConditions: none.				                *
+        *                                                               *
+        *  Returns: none.					        *
+        ****************************************************************/
 	void printName(){
 		cout << this->player_name;
 	}
 
-	//bet the players money
+        /****************************************************************
+        *  Method: bet		                                        *
+        *                                                               *
+        *  Purpose: This function takes money out of the player's money *
+        *                                                               *
+        *  Parameters: double	                                        *
+        *                                                               *
+        *  PreConditions: none.				                *
+        *                                                               *
+        *  Returns: none.					        *
+        ****************************************************************/
 	void bet(double money){
 		this->player_money = this->player_money - money;
 	}
 
-	//Print the players cards
+        /****************************************************************
+        *  Method: printCards                                           *
+        *                                                               *
+        *  Purpose: This function print's the players cards		*
+        *                                                               *
+        *  Parameters: none.                                            *
+        *                                                               *
+        *  PreConditions: none.                                         *
+        *                                                               *
+        *  Returns: none.                                               *
+        ****************************************************************/
 	void printCards(){
 
 		for(auto i = 0; i < this->getCards().size(); i++){
@@ -170,7 +244,18 @@ public:
 		cout << endl;
 	}
 
-	//print the players best hand
+        /****************************************************************
+        *  Method: printBestHand                                        *
+        *                                                               *
+        *  Purpose: This function print's the players best poker hand   *
+	*	    and hand rank					*
+        *                                                               *
+        *  Parameters: none.                                            *
+        *                                                               *
+        *  PreConditions: none.                                         *
+        *                                                               *
+        *  Returns: none.                                               *
+        ****************************************************************/
 	void printBestHand(){
 
                 for(auto i = 0; i < this->getBestHand().size(); i++){
@@ -183,7 +268,17 @@ public:
 
 	}
 
-	//print players Community cards
+        /****************************************************************
+        *  Method: printComCards                                        *
+        *                                                               *
+        *  Purpose: This function print's the players community cards   *
+        *                                                               *
+        *  Parameters: none.                                            *
+        *                                                               *
+        *  PreConditions: none.                                         *
+        *                                                               *
+        *  Returns: none.                                               *
+        ****************************************************************/
 	void printComCards(){
 
 		for(auto i{0}; i < this->comCards.size(); i++){
@@ -194,12 +289,34 @@ public:
 		cout << endl;
 	}
 
-	//add a card to the players cards
+        /****************************************************************
+        *  Method: push_card                                            *
+        *                                                               *
+        *  Purpose: This function puts cards into the player's card     *
+	*	    vector.						*
+        *                                                               *
+        *  Parameters: Card                                             *
+        *                                                               *
+        *  PreConditions: none.                                         *
+        *                                                               *
+        *  Returns: none.                                               *
+        ****************************************************************/
 	void push_card(Card someCard){
 		this->player_cards.push_back(someCard);
 	}
 
-	//this combines the players cards and community cards to be used later
+        /****************************************************************
+        *  Method: combineCards                                         *
+        *                                                               *
+        *  Purpose: This function puts all the community cards and the  *
+        *	    player's cards into the same vector.		*
+	*								*
+        *  Parameters: vector<Card>                                     *
+        *                                                               *
+        *  PreConditions: none.                                         *
+        *                                                               *
+        *  Returns: none.                                               *
+        ****************************************************************/
 	void combineCards(vector<Card> b){
 
 		//combine the community cards and player cards

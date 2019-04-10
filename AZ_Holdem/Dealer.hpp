@@ -2,8 +2,10 @@
  *
  * Dealer.hpp
  *
- *Programmer: Christian Soto, 2019
+ * This file is a class that acts like a dealer.  It starts out with a deck
+ * of cards.  It can shuffle the cards, and deal the cards to dealers.
  *
+ *Programmer: Christian Soto, 2019
  *
  */
 
@@ -31,15 +33,42 @@ public:
 			S2, S3, S4, S5, S6, S7, S8, S9, S10, SJ, SQ, SK, SA};
 	}
 
+        /********************************
+        *               Getters         *
+        ********************************/
 	vector<Card> getDeck() const{
 		return this->deck;
 	}
 
+        /****************************************************************
+        *  Method: shuffledeck                                          *
+        *                                                               *
+        *  Purpose: This function takes the deck of cards and randomly  *
+        *           shuffles them.                                      *
+        *                                                               *
+        *  Parameters: none.                                            *
+        *                                                               *
+        *  PreConditions: a deck of cards                               *
+        *                                                               *
+        *  Returns: none.                                               *
+        ****************************************************************/
 	void shuffleDeck(){
 
 		random_shuffle(this->deck.begin(), this->deck.end());
 	}
 
+        /****************************************************************
+        *  Method: printDeck                                            *
+        *                                                               *
+        *  Purpose: This function prints the dealer's deck of cards. It *
+        *           is mostly used for debugging purposes.              *
+        *                                                               *
+        *  Parameters: none.                                            *
+        *                                                               *
+        *  PreConditions: none.                                         *
+        *                                                               *
+        *  Returns: none.                                               *
+        ****************************************************************/
 	void printDeck(){
 
 		for(auto i = 0; i < this->deck.size(); i++){
@@ -49,6 +78,5 @@ public:
 
 			cout << endl;
 	}
-
 };
 #endif //Dealer.hpp

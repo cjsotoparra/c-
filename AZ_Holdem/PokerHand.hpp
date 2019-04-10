@@ -36,19 +36,23 @@ enum class HandRanking{
 class PokerHand{
 private:
 
+	//Private varibles
 	HandRanking hRank;
 	vector<Card> myHand;
 public:
 	//Constructor
 	PokerHand(const Card &one, const Card &two, const Card &three, const Card &four, const Card &five){
 
+		//put the four cards into the hand
 		myHand.push_back(one);
 		myHand.push_back(two);
 		myHand.push_back(three);
 		myHand.push_back(four);
 		myHand.push_back(five);
 
+		//sort for easy comparsion later
 		sort(myHand.begin(), myHand.end());
+
 		//all hands start with being a highCard
 		hRank = setHand();
 	}
@@ -67,6 +71,18 @@ public:
         }
 
 
+	/****************************************************************
+	*  Method: printHRank()						*
+	*								*
+	*  Purpose: This function prints the Rank of the hand		*
+	*								*
+	*  Parameters: none.						*
+	*								*
+	*  PreConditions: This method assumes the Hand ranking has been	*
+	*		  set already.					*
+	*								*
+	*  Returns: none.						*
+	****************************************************************/
 	void printHRank(){
 
 		if(this->getHandRank() == HandRanking::HIGH_CARD){
@@ -109,8 +125,20 @@ public:
 			cout << "Royal Flush";
 
 		}
-	}
-	//check if the hand has a pair
+	}//printHRank
+
+        /****************************************************************
+        *  Method: isPair	                                        *
+        *                                                               *
+        *  Purpose: This function simple checks if there is pair in the *
+	*	    hand by iterating.					*
+        *                                                               *
+        *  Parameters: vector<Card>                                     *
+        *                                                               *
+        *  PreConditions: a sorted vector of Type Cards			*
+        *                 		                                *
+	*  Returns: true if a pair is found or false if not		*
+        ****************************************************************/
 	bool isPair(const vector<Card> &myHand){
 
 		for(auto i{0}; i < 4; i++){
@@ -122,16 +150,27 @@ public:
 		}
 
 		return false;
-	}
+	}//isPair
 
-	//check 2 pairs, hand should be sorted at the constructor
+        /****************************************************************
+        *  Method: is2Pair                                              *
+        *                                                               *
+        *  Purpose: This function checks if there are 2 pairs in the    *
+        *           the hand by iterating.                              *
+        *                                                               *
+        *  Parameters: vector<Card>                                     *
+        *                                                               *
+        *  PreConditions: a sorted vector of Type Cards                 *
+        *                                                               *
+        *  Returns: true if 2 pairs are found or false if not           *
+        ****************************************************************/
 	bool is2Pair(const vector<Card> &myHand){
 
 		auto pair{0};
 
 		for(auto i{0}; i<4; i++){
 
-			//chec if two cards are the same
+			//check if two cards are the same
 			if(myHand.at(i).getValue() == myHand.at(i+1).getValue()){
 
 				//incrment pair
@@ -146,9 +185,20 @@ public:
 
 		//return false if pair is <2
 		return false;
-	}
+	}//is2Pair
 
-	//Three of a kind checker, pre condition is sorted
+        /****************************************************************
+        *  Method: isThreeOfAKind                                       *
+        *                                                               *
+        *  Purpose: This function checks if there are 3 of a kind in the*
+        *           the hand by iterating.                              *
+        *                                                               *
+        *  Parameters: vector<Card>                                     *
+        *                                                               *
+        *  PreConditions: a sorted vector of Type Cards                 *
+        *                                                               *
+        *  Returns: true if 3 cards are the same or false if no         *
+        ****************************************************************/
 	bool isThreeOfAKind(const vector<Card> &myHand){
 
 		for(auto i{0}; i< 3; i++){
@@ -159,11 +209,22 @@ public:
 			}
 
 		}
-
 		return false;
-	}
+	}//isThreeOfAKind
 
-        //straight, pre condition is sorted
+        /****************************************************************
+        *  Method: isStraght                                            *
+        *                                                               *
+        *  Purpose: This function checks if the current hand is a	*
+        *           straight.  It also checks for low ACE, High ACE and *
+	*	    regular straight.					*
+        *                                                               *
+        *  Parameters: vector<Card>                                     *
+        *                                                               *
+        *  PreConditions: a sorted vector of Type Cards                 *
+        *                                                               *
+        *  Returns: true if it goes throught the vector, else false     *
+        ****************************************************************/
         bool isStraight(const vector<Card> &myHand){
 
                 //check high ace
@@ -214,9 +275,20 @@ public:
 
 			return true;
 		}
-        }
+        }//isStraight
 
-	//isFlush, sorting does not matter
+        /****************************************************************
+        *  Method: isFlush                                              *
+        *                                                               *
+        *  Purpose: This function checks if the cards have the same	*
+        *           suit.		                                *
+        *                                                               *
+        *  Parameters: vector<Card>                                     *
+        *                                                               *
+        *  PreConditions: a sorted vector of Type Cards                 *
+        *                                                               *
+        *  Returns: true if it makes through the vector, else false     *
+        ****************************************************************/
 	bool isFlush(const vector<Card> &myHand){
 
 		//go through the whole hand and check the suits
@@ -228,9 +300,20 @@ public:
 		}
 
 		return true;
-	}
+	}//isFlush
 
-	//check if it is a full house
+        /****************************************************************
+        *  Method: isPair                                               *
+        *                                                               *
+        *  Purpose: This function checks if there are 2 pairs in the    *
+        *           the hand by iterating.                              *
+        *                                                               *
+        *  Parameters: vector<Card>                                     *
+        *                                                               *
+        *  PreConditions: a sorted vector of Type Cards                 *
+        *                                                               *
+        *  Returns: true if 2 pairs are found or false if not           *
+        ****************************************************************/
 	bool isFullHouse(const vector<Card> &myHand){
 
 		auto index{0};
@@ -259,10 +342,20 @@ public:
 
 		//we know we have a full house if all conditions pass
 		return true;
-
 	}
 
-	//check to see if is a straight flush
+        /****************************************************************
+        *  Method: isStraightFlush                                      *
+        *                                                               *
+        *  Purpose: This function checks if the hand is a straight flush*
+        *           by calling the two functions isStraight and isFlush.*
+        *                                                               *
+        *  Parameters: vector<Card>                                     *
+        *                                                               *
+        *  PreConditions: a sorted vector of Type Cards                 *
+        *                                                               *
+        *  Returns: true if both if statements pass, else false         *
+        ****************************************************************/
 	bool isStraightFlush(const vector<Card> &myHand){
 
 		//check to see if it is a flush
@@ -279,7 +372,18 @@ public:
 		return true;
 	}
 
-	//check to see if it is a four of a kind
+        /****************************************************************
+        *  Method: isFourOfAKind                                        *
+        *                                                               *
+        *  Purpose: This function checks if there are 4 cards that are  *
+        *           the same in the vector.                             *
+        *                                                               *
+        *  Parameters: vector<Card>                                     *
+        *                                                               *
+        *  PreConditions: a sorted vector of Type Cards                 *
+        *                                                               *
+        *  Returns: true if 4 are found to be the same, else false      *
+        ****************************************************************/
 	bool isFourOfAKind(const vector<Card> &myHand){
 
 		for(auto i{0}; i<2; i++){
@@ -294,7 +398,18 @@ public:
 		return false;
 	}
 
-	//finds the kicker card in a two pair hand
+        /****************************************************************
+        *  Method: findKicker                                           *
+        *                                                               *
+        *  Purpose: This function is a helper function that finds the   *
+        *           kicker in the vector for 2 pairs cards.             *
+        *                                                               *
+        *  Parameters: vector<Card>                                     *
+        *                                                               *
+        *  PreConditions: a sorted vector of Type Cards                 *
+        *                                                               *
+        *  Returns: The index of where the kicker card is.	        *
+        ****************************************************************/
 	int findKicker(vector<Card> aHand) const{
 
 		if(aHand.at(0).getValue() != aHand.at(1).getValue()){
@@ -305,9 +420,19 @@ public:
 		}else {
 			return 4;
 		}
-	}
+	}//findKicker
 
-	//find the highest kicker of a pair
+        /****************************************************************
+        *  Method: findHKicker                                          *
+        *                                                               *
+        *  Purpose: This function finds the high kicker card in a hand  *
+        *                                                               *
+        *  Parameters: vector<Card>                                     *
+        *                                                               *
+        *  PreConditions: a sorted vector of Type Cards                 *
+        *                                                               *
+        *  Returns: The index of where the high kicker is.	        *
+        ****************************************************************/
 	int findHKicker(int index) const{
 
 		if(index == 3){
@@ -317,7 +442,17 @@ public:
 		}
 	}
 
-	//find the mid kicker of a pair
+        /****************************************************************
+        *  Method: findMKicker                                          *
+        *                                                               *
+        *  Purpose: This function finds the mid kicker card in a hand   *
+        *                                                               *
+        *  Parameters: vector<Card>                                     *
+        *                                                               *
+        *  PreConditions: a sorted vector of Type Cards                 *
+        *                                                               *
+        *  Returns: The index of where the mid card kicker is.          *
+        ****************************************************************/
         int findMKicker(int index) const{
 
                 if(index >= 2){
@@ -327,7 +462,17 @@ public:
                 }
         }
 
-        //find the Lowest kicker of a pair
+        /****************************************************************
+        *  Method: findLKicker                                          *
+        *                                                               *
+        *  Purpose: This function finds the low kicker card in a hand   *
+        *                                                               *
+        *  Parameters: vector<Card>                                     *
+        *                                                               *
+        *  PreConditions: a sorted vector of Type Cards                 *
+        *                                                               *
+        *  Returns: The index of where the low kicker card  is.         *
+        ****************************************************************/
         int findLKicker(int index) const{
 
                 if(index >= 1){
@@ -337,6 +482,18 @@ public:
                 }
         }
 
+        /****************************************************************
+        *  Method: indexOfPair                                          *
+        *                                                               *
+        *  Purpose: This function finds the index of where the pair of  *
+	*	    cards begin.					*
+        *                                                               *
+        *  Parameters: vector<Card>                                     *
+        *                                                               *
+        *  PreConditions: a sorted vector of Type Cards                 *
+        *                                                               *
+        *  Returns: The index of where the high kicker is.              *
+        ****************************************************************/
 	int indexOfPair(vector<Card> aHand) const{
 
 		for(auto i{0}; i<4; i++){
@@ -352,7 +509,6 @@ public:
 	/****************************************
         *               Setters                 *
         *****************************************/
-
 	 HandRanking setHand(){
 
 		//set the what kind of hand it is, start with the highest
@@ -398,7 +554,19 @@ public:
 		}
 	}//setHandRanking
 
-	//check which hand is greater by hand ranking
+        /****************************************************************
+        *  Method: operator<	                                        *
+        *                                                               *
+        *  Purpose: This function overloads the operator < to know      *
+        *           which pokerhand is less and to help with sorting in *
+	*	    other classes.					*
+	*								*
+        *  Parameters: vector<Card>                                     *
+        *                                                               *
+        *  PreConditions: a sorted vector of Type Cards                 *
+        *                                                               *
+        *  Returns: The index of where the high kicker is.              *
+        ****************************************************************/
 	bool operator<( const PokerHand &other) const{
 
 
