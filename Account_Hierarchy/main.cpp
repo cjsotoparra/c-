@@ -7,6 +7,7 @@
  *
  * Author: Rick Mercer and Christian Soto
  */
+#include <vector>
 #include <string>
 #include <iostream>
 #include <cmath>
@@ -66,10 +67,10 @@ protected:
 	double loan;
 public:
 
-    	SafeAccount(string initName, double initialBalance) :
+    	explicit SafeAccount(string initName, double initialBalance) :
         	 Account(initName, initialBalance) {
 
-		loan = 0;
+		loan = 0.0;
     	}
 
 	void withdraw(double amount) override {
@@ -88,7 +89,35 @@ public:
 	}
 };
 
+class Accounts{
+private:
+	vector<shared_ptr<Account>> accounts;
+
+public: //add account and show
+
+	void addAccount(shared_ptr<Account> const anAccountPtr){
+
+		accounts.push_back(anAccountPtr);
+	}
+
+	void show(){
+		for(auto account: accounts){
+			cout << account->getName() << " has " << account->getBalance() << endl;
+		}
+	}
+};
+
 int main() {
+
+	Accounts all;
+
+	shared_ptr<RegularAccount> acct1 = shared_ptr<RegularAccount> (new RegularAccount{"one", 1.11});
+
+	shared_ptr<SafeAccount> acct2 = shared_ptr<SafeAccount> (new SafeAccount{"Two", 2.22});
+
+	all.addAccount(acct1);
+	all.addAccount(acct2);
+
     // Use a smart pointer just for the fun of it
     unique_ptr<RegularAccount> a = make_unique<RegularAccount>("Five", 5.55);
     assert("Five" == a->getName());
